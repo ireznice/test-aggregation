@@ -273,6 +273,8 @@ module TestAggregation
       grouped = steps_by_job_id.group_by { |sbji| sbji['uuid'] }
 
       grouped.each_with_object([]) do |step_group, result|
+        require 'pp'
+        puts result
         result << step_group.max_by { |step_results| step_results['number'] }
       end
     end
