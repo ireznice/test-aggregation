@@ -226,6 +226,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 982,
             'name'            => 'dynamic shared step 1 for test case A',
+            'uuid'            => '982A0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -236,6 +237,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 982,
             'name'            => 'dynamic step 2 for test case A for 982',
+            'uuid'            => '982A0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -246,6 +248,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 982,
             'name'            => 'dynamic shared step 1 for test case A',
+            'uuid'            => '982A0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -256,6 +259,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 982,
             'name'            => 'dynamic step 2 for test case A for 982',
+            'uuid'            => '982A0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -266,6 +270,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 982,
             'name'            => 'dynamic shared step 1 for test case B',
+            'uuid'            => '982B0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -276,6 +281,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 982,
             'name'            => 'dynamic step 2 for test case B for 982',
+            'uuid'            => '982B0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -286,6 +292,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 982,
             'name'            => 'dynamic shared step 1 for test case B',
+            'uuid'            => '982B0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -296,6 +303,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 982,
             'name'            => 'dynamic step 2 for test case B for 982',
+            'uuid'            => '982B0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -307,6 +315,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 983,
             'name'            => 'dynamic shared step 1 for test case A',
+            'uuid'            => '983A0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -317,6 +326,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 983,
             'name'            => 'dynamic step 2 for test case A for 983',
+            'uuid'            => '983A0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -327,6 +337,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 983,
             'name'            => 'dynamic shared step 1 for test case A',
+            'uuid'            => '983A0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -337,6 +348,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 983,
             'name'            => 'dynamic step 2 for test case A for 983',
+            'uuid'            => '983A0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -347,6 +359,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 983,
             'name'            => 'dynamic shared step 1 for test case B',
+            'uuid'            => '983B0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -357,6 +370,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 983,
             'name'            => 'dynamic step 2 for test case B for 983',
+            'uuid'            => '983B0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -367,6 +381,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 983,
             'name'            => 'dynamic shared step 1 for test case B',
+            'uuid'            => '983B0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -377,6 +392,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 983,
             'name'            => 'dynamic step 2 for test case B for 983',
+            'uuid'            => '983B0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -388,6 +404,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 984,
             'name'            => 'dynamic shared step 1 for test case A',
+            'uuid'            => '984A0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -398,6 +415,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 984,
             'name'            => 'dynamic step 2 for test case A for 984',
+            'uuid'            => '984A0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -408,6 +426,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 984,
             'name'            => 'dynamic shared step 1 for test case A',
+            'uuid'            => '984A0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -418,6 +437,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 984,
             'name'            => 'dynamic step 2 for test case A for 984',
+            'uuid'            => '984A0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'A',
             'class_position'  => 1,
@@ -428,6 +448,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 984,
             'name'            => 'dynamic shared step 1 for test case B',
+            'uuid'            => '984B0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -438,6 +459,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 984,
             'name'            => 'dynamic step 2 for test case B for 984',
+            'uuid'            => '984B0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -448,6 +470,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 984,
             'name'            => 'dynamic shared step 1 for test case B',
+            'uuid'            => '984B0000-4741-4D9A-9476-88A125619525',
             'position'        => 3,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -458,6 +481,7 @@ describe TestAggregation::BuildResults do
           {
             'job_id'          => 984,
             'name'            => 'dynamic step 2 for test case B for 984',
+            'uuid'            => '984B0001-4741-4D9A-9476-88A125619525',
             'position'        => 4,
             'class_name'      => 'B',
             'class_position'  => 2,
@@ -469,10 +493,25 @@ describe TestAggregation::BuildResults do
       }
     end
 
+def fix_hash (input)
+  input.each do |i|
+    if Array === i
+      i.each {|ii| fix_hash(ii) }
+    elsif Hash === i
+      i.each do |k,v|
+        if k == 'id'
+          v = ""
+        end
+      end
+    end
+  end
+end
+
     it 'unkbeknownst behaviour' do
       require 'pp'
 
       test1_data[:input].each { |input|
+        #input.metge!({ 'uuid' => Secu})
         pp "adding: #{input}"
         subject2.parse(input)
       }
@@ -480,8 +519,25 @@ describe TestAggregation::BuildResults do
 
 
 
-
-      pp subject2.as_json
+      j = subject2.as_json
+      pp ">>>>>>>>>>>>>>>>>>>>>>>"
+      pp ">>>>>>>>>>>>>>>>>>>>>>>"
+      pp ">>>>>>>>>>>>>>>>>>>>>>>"
+      pp ">>>>>>>>>>>>>>>>>>>>>>>"
+      pp ">>>>>>>>>>>>>>>>>>>>>>>"
+      pp ">>>>>>>>>>>>>>>>>>>>>>>"
+      pp ">>>>>>>>>>>>>>>>>>>>>>>"
+      #puts "#{j.to_json}"
+      #puts j.class
+      #pp ">>>>>>>>>>>>>>>>>>>>>>>22222222222"
+      #puts "#{subject2.as_json.to_json}"
+      first_called = JSON.parse(subject2.as_json.to_json)
+pp fix_hash(first_called)
+      #second_called = JSON.parse(subject2.as_json.to_json).flatten(20)
+      #pp first_called.size
+      #expect(first_called.each_index {|i| alled[i+1] = 0 if first_called[i] == 'id'}).to eq second_called.each_index {|i| alled[i+1] = 0 if first_called[i] == 'id'}
+      #agg = JSON.parse(j.to_s)
+      #pp agg
     end
 
     it 'returns Created when there are no jobs' do

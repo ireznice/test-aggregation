@@ -1,5 +1,6 @@
 require 'test_aggregation/step_result'
 require 'tsort'
+require 'pp'
 
 # EXTEND HASH BY TSORT
 class Hash
@@ -18,11 +19,13 @@ module TestAggregation
     attr_reader :build_result
     attr_reader :test_steps
     attr_reader :name, :position
+    attr_reader :static_steps_count
 
     def initialize(build_result)
       @build_result = build_result
       @test_steps = []
       @added_steps = []
+      @static_steps_count = 0
     end
 
     def step_result_callback
@@ -72,6 +75,7 @@ module TestAggregation
 
       @test_steps[step_position] ||= StepResult.new(self)
       @test_steps[step_position].parse(step)
+      @static_steps_count = @test_steps.count
     end
 
     def normalized_test_steps
@@ -80,15 +84,12 @@ module TestAggregation
       #   next unless test_step
       #   test_step.as_json
       # end
-
       preprocessed_steps = preprocess_steps
 
       begin
         sorted_step_names = preprocessed_steps.tsort
 
-        #generate_data_for_added_steps(sorted_step_names)
-        generate_data_for_cyclic_added_steps
-
+        generate_data_for_added_steps(sorted_step_names)
       rescue TSort::Cyclic
         generate_data_for_cyclic_added_steps
       end
@@ -194,52 +195,49 @@ module TestAggregation
     end
 
     def generate_data_for_cyclic_added_steps
-      result_offset = 0
+      step_position = static_steps_count
+      @test_steps = @test_steps[0..static_steps_count]
 
       job_ids.each do |job_id|
 
         steps_by_job_id = job_filtered_steps(job_id)
-
-        steps_by_job_id.each do |sbji|
-          step_position = (sbji['position'] + result_offset) - 1
-          #puts "current sbji name: #{sbji['name']}"
-          #puts "current result_offset: #{result_offset}"
-          #puts "current step_position: #{step_position}"
-
+        steps_by_job_id.each do |step|
           job_ids.each do |generate_for_job_id|
-            mocked_step = not_performed_step(generate_for_job_id, sbji['name'])
-
             @test_steps[step_position] ||= StepResult.new(self)
 
-            if generate_for_job_id != job_id
-              puts "mocked: #{sbji['name']}"
-              @test_steps[step_position].parse(mocked_step)
-            else
-              puts "NOTmocked: #{sbji['name']}"
-              @test_steps[step_position].parse(sbji)
-            end
+            @test_steps[step_position].parse(
+              generate_for_job_id == job_id ? step :
+              not_performed_step(generate_for_job_id, step['name'])
+            )
+
           end
 
-          result_offset += 1
+          step_position = step_position + 1
         end
       end
     end
 
     def generate_data_for_added_steps(sorted)
-      step_position = (@added_steps.map{|s| s['position'] }.min || 1)
+      step_position = static_steps_count
+      @test_steps = @test_steps[0..static_steps_count]
 
-      sorted.each do |s|
-
+      sorted.each do |step_name|
         job_ids.each do |generate_for_job_id|
           @test_steps[step_position] ||= StepResult.new(self)
 
-          found_result = @added_steps.find { |as| as['job_id'] == generate_for_job_id && as['name'] == s }
+          found_result = @added_steps.find do |item|
+            item['job_id'] == generate_for_job_id &&
+            item['name'] == step_name
+          end
 
           if found_result
-            puts "class: #{found_result.class}, #{found_result.first.class}"
-            @test_steps[step_position].parse(found_result.first)
+            @test_steps[step_position].parse(found_result)
           else
-            mocked_step = not_performed_step(generate_for_job_id, s)
+            mocked_step = not_performed_step(
+              generate_for_job_id,
+              step_name
+            )
+
             @test_steps[step_position].parse(mocked_step)
           end
         end
@@ -269,12 +267,11 @@ module TestAggregation
     # filters out results and takes only step results: passed, failed, ...
     def job_filtered_steps(job_id)
       steps_by_job_id = @added_steps.find_all { |s| s['job_id'] == job_id }.sort_by { |s| s['position'] }
-
       grouped = steps_by_job_id.group_by { |sbji| sbji['uuid'] }
 
-      grouped.each_with_object([]) do |step_group, result|
-        require 'pp'
-        puts result
+      pp "#{grouped.class}"
+
+      grouped.each_with_object([]) do |(_uuid, step_group), result|
         result << step_group.max_by { |step_results| step_results['number'] }
       end
     end
